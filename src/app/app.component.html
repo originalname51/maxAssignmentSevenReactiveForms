@@ -16,6 +16,38 @@
        Upon submitting the form print hte value to console.
 
        -->
+
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="projectName">ProjectName</label>
+          <input
+            type="text"
+            id="projectName"
+            formControlName="projectName"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="projectStatus">Project Status</label>
+          <select class="form-control"
+                  id="projectStatus"
+          >
+            <option *ngFor="let projectStatusName of projectForm.get('projectStatusOptions')['controls'];">
+              {{projectStatusName.value}}
+            </option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary type=submit">Submit</button>
+
+      </form>
     </div>
   </div>
 </div>
