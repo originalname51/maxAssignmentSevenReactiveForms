@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   projectForm: FormGroup;
   forbiddenProjectNames = ['badName'];
   options =  new FormArray(
-    [new FormControl(''), new FormControl('Stable'), new FormControl('Critical'), new FormControl('Finished')]
+    [new FormControl('Stable'), new FormControl('Critical'), new FormControl('Finished')]
   );
 
 
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  forbiddenNames(control: FormControl): { [s: string]: boolean } {
+    forbiddenNames(control: FormControl): { [s: string]: boolean } {
     if (this.forbiddenProjectNames.indexOf(control.value) !== -1) {
       return {'nameIsForbidden': true};
     }
